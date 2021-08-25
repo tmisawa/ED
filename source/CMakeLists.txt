@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8)
+if(${CMAKE_PROJECT_NAME} STREQUAL "Project")
+  message(FATAL_ERROR "cmake should be executed not for 'source' subdirectory, but for the top directory of HPhi.")
+endif(${CMAKE_PROJECT_NAME} STREQUAL "Project")
+set(SOURCES main.f90 eigen_solver.f90 get_expectation_values.f90 ham2vec_v3.f90 input_param.f90 lanczos.f90 state_lists.f90)
+add_executable(main.out ${SOURCES})
+target_link_libraries(main.out ${LAPACK_LIBRARIES} m)
